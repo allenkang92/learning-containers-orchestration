@@ -123,3 +123,125 @@ docker version
 | `login` | 도커 레지스트리에 로그인 | `-u`, `-p` | `docker login -u myuser` |
 | `logout` | 도커 레지스트리에서 로그아웃 | | `docker logout` |
 | `search` | 도커 레지스트리에서 이미지 검색 | | `docker search ubuntu` |
+
+## 3. 도커 기본 명령어
+
+### 3.1 시스템 정보
+
+#### 3.1.1 도커 버전 확인
+```bash
+docker version
+docker -v
+```
+
+#### 3.1.2 시스템 정보 확인
+```bash
+docker info
+```
+
+#### 3.1.3 디스크 사용량 확인
+```bash
+docker system df
+```
+
+### 3.2 이미지 관리
+
+#### 3.2.1 이미지 검색
+```bash
+docker search [옵션] 이미지이름
+```
+
+#### 3.2.2 이미지 다운로드
+```bash
+docker pull [옵션] 이미지이름[:태그]
+```
+
+#### 3.2.3 이미지 목록
+```bash
+docker images
+docker image ls
+```
+
+#### 3.2.4 이미지 삭제
+```bash
+docker rmi [옵션] 이미지이름[:태그]
+docker image rm [옵션] 이미지이름[:태그]
+```
+
+### 3.3 컨테이너 관리
+
+#### 3.3.1 컨테이너 생성 및 실행
+```bash
+docker run [옵션] 이미지이름[:태그] [명령어]
+```
+
+##### 3.3.1.1 주요 옵션
+- `-d`: 백그라운드 실행
+- `-p`: 포트 포워딩
+- `-v`: 볼륨 마운트
+- `-e`: 환경변수 설정
+- `--name`: 컨테이너 이름 지정
+
+#### 3.3.2 컨테이너 목록
+```bash
+docker ps [옵션]
+docker container ls [옵션]
+```
+
+##### 3.3.2.1 주요 옵션
+- `-a`: 모든 컨테이너 표시
+- `-q`: 컨테이너 ID만 표시
+- `-s`: 컨테이너 크기 표시
+
+#### 3.3.3 컨테이너 제어
+```bash
+docker start 컨테이너이름
+docker stop 컨테이너이름
+docker restart 컨테이너이름
+docker pause 컨테이너이름
+docker unpause 컨테이너이름
+```
+
+#### 3.3.4 컨테이너 삭제
+```bash
+docker rm [옵션] 컨테이너이름
+docker container rm [옵션] 컨테이너이름
+```
+
+### 3.4 컨테이너 상호작용
+
+#### 3.4.1 컨테이너 로그
+```bash
+docker logs [옵션] 컨테이너이름
+```
+
+##### 3.4.1.1 주요 옵션
+- `-f`: 실시간 로그 확인
+- `--tail`: 마지막 n줄 확인
+- `--since`: 특정 시간 이후 로그
+
+#### 3.4.2 컨테이너 접속
+```bash
+docker exec [옵션] 컨테이너이름 명령어
+```
+
+##### 3.4.2.1 주요 옵션
+- `-i`: 표준 입력 유지
+- `-t`: TTY 할당
+- `-u`: 사용자 지정
+
+### 3.5 시스템 관리
+
+#### 3.5.1 리소스 정리
+```bash
+docker system prune [옵션]
+```
+
+#### 3.5.2 이벤트 확인
+```bash
+docker events [옵션]
+```
+
+#### 3.5.3 상태 모니터링
+```bash
+docker stats [옵션] [컨테이너이름...]
