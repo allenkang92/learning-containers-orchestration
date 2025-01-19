@@ -1,12 +1,5 @@
-
-
 # Docker SDK
 docker>=5.0.0
 
 # Kubernetes Client
 kubernetes>=18.20.0
-
-# Development Tools
-pytest>=6.2.5
-black>=21.7b0
-flake8>=3.9.2
